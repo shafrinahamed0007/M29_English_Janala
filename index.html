@@ -26,11 +26,86 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <!-- stylesheet -->
-     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
-  <h1 class="text-8xl py-10">English Janala is Cooking</h1>
+    <header>
+        <div class="navbar bg-base-100 shadow-sm">
+            <div class="navbar-start">
+                <div class="dropdown">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h8m-8 6h16" />
+                        </svg>
+                    </div>
+                    <ul tabindex="-1"
+                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                        <a
+                            class="btn btn-outline btn-primary hover:bg-transparent hover:text-primary hover:border-primary cursor-default">
+                            <i class="fa-solid fa-circle-question" style="color: rgb(66, 42, 213);"></i> FAQ
+                        </a>
+                        <a
+                            class="btn btn-outline btn-primary hover:bg-transparent hover:text-primary hover:border-primary cursor-default"><i
+                                class="fa-solid fa-book-open" style="color: rgb(66, 42, 213);"></i> Learn</a>
+                        <a
+                            class="btn btn-outline btn-primary hover:bg-transparent hover:text-primary hover:border-primary cursor-default"><i
+                                class="fa-solid fa-arrow-right-from-bracket" style="color: rgb(66, 42, 213);"></i>
+                            Logout</a>
+                    </ul>
+                </div>
+                <a class="flex items-center gap-1 text-xl">
+                    <span class="text-lg font-bold">English</span> <img src="./assets/logo.png" alt=""> <span
+                        class="font-bangla">জানালা</span>
+                </a>
+            </div>
+
+            <!-- Buttons -->
+            <div class="navbar-end gap-4 hidden lg:flex">
+                <a
+                    class="btn btn-outline btn-primary hover:bg-transparent hover:text-primary hover:border-primary cursor-default">
+                    <i class="fa-solid fa-circle-question" style="color: rgb(66, 42, 213);"></i> FAQ
+                </a>
+                <a
+                    class="btn btn-outline btn-primary hover:bg-transparent hover:text-primary hover:border-primary cursor-default"><i
+                        class="fa-solid fa-book-open" style="color: rgb(66, 42, 213);"></i> Learn</a>
+                <a
+                    class="btn btn-outline btn-primary hover:bg-transparent hover:text-primary hover:border-primary cursor-default"><i
+                        class="fa-solid fa-arrow-right-from-bracket" style="color: rgb(66, 42, 213);"></i>
+                    Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-11/12 mx-auto">
+
+        <!-- Banner Section -->
+        <section class="flex flex-col-reverse md:flex-row  gap-5 justify-between items-center py-5">
+            <div class="content flex-1 text-center md:text-left ">
+                <h2 class="text-4xl font-bold mb-8"><span class="text-[#00BCFF]">English</span> is Easy!!</h2>
+                <p class="font-bangla">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা
+                    বাড়াতে চান, আমাদের
+                    Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ</p>
+                <form class="grid gap-5 mt-7">
+
+                    <input class="w-[320px] h-10 p-3 rounded-md" type="text" placeholder="Enter Your Name" name=""
+                        id="">
+
+                    <input class="w-[320px] h-10 p-3 rounded-md" type="text" placeholder="********" name="" id="">
+
+                </form>
+
+                <button class="btn bg-[#3D26C7] text-white py-[10px] px-4 mt-5">Get Started</button>
+
+
+            </div>
+            <div class="image flex-1">
+                <img src="./assets/hero-student.png" alt="">
+            </div>
+        </section>
+    </main>
 </body>
 
 </html>
