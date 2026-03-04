@@ -27,7 +27,6 @@ const displayLesson = (lessons) => {
   }
 };
 
-
 const loadLevelWord = (id) => {
   // console.log(id)
   const url = `https://openapi.programming-hero.com/api/level/${id}`;
@@ -44,12 +43,45 @@ const loadLevelWord = (id) => {
     });
 };
 
-const removeActive = () =>{
+const removeActive = () => {
   const lessonButtons = document.querySelectorAll(".lesson-btn");
   // console.log(lessonButtons)
-  lessonButtons.forEach(btn =>btn.classList.remove("active"))
-}
+  lessonButtons.forEach((btn) => btn.classList.remove("active"));
+};
 
+const loadWordDetail = async (id) => {
+  const url = `https://openapi.programming-hero.com/api/word/${id}`;
+  // console.log(url)
+  const res = await fetch(url);
+  const details = await res.json();
+  // console.log(details);
+  displayWordDetails(details.data);
+};
+
+const displayWordDetails = (word) => {
+  // console.log(word);
+  const detailsBox = document.getElementById("detailsContainer");
+  detailsBox.innerHTML = ` <div class="">
+                        <h2 class="text-2xl font-bold">${word.word} (<i class="fa-solid fa-microphone-lines t"></i> ${word.pronunciation})</h2>
+                    </div>
+                    <div class="">
+                        <h2 class="text-xl font-bold"> Meaning</h2>
+                        <p class="font-bangla">${word.meaning}</p>
+                    </div>
+                    <div class="">
+                        <h2 class="text-2xl font-bold">Eample</h2>
+                        <p class="font-bangla">${word.sentence}</p>
+                    </div>
+                    <div class="">
+                        <h2 class="text-2xl font-bold">Synonym</h2>
+                        <span class="btn">Syn1</span>
+                        <span class="btn">Syn2</span>
+                        <span class="btn">Syn3</span>
+                    </div>
+  
+  `;
+  document.getElementById("my_modal_5").showModal();
+};
 
 const displayLevelWord = (words) => {
   // console.log(words);
@@ -76,7 +108,7 @@ const displayLevelWord = (words) => {
                 <p class="my-6 font-semibold">Meaning /Pronounciation</p>
                 <p class="font-bangla text-2xl font-semibold">"${word.meaning ? word.meaning : "অর্থ পাওয়া যায়নি"} / ${word.pronunciation ? word.pronunciation : "Pronounciation পাওয়া যায়নি"}"</p>
                 <div class="flex justify-between items-center mt-14">
-                    <button onclick = "my_modal_5.showModal()" class="btn bg-[#1a9aff10] hover:bg-[#1a9aff80]">
+                    <button onclick = "loadWordDetail(${word.id})" class="btn bg-[#1a9aff10] hover:bg-[#1a9aff80]">
                         <i class="fa-solid fa-circle-info"></i>
                     </button>
                     <button class="btn bg-[#1a9aff10] hover:bg-[#1a9aff80]">
