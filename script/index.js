@@ -47,9 +47,18 @@ const displayLevelWord = (words) => {
     const card = document.createElement("div");
     card.innerHTML = `
      <div class="bg-white rounded-xl shadow-sm text-center py-20 px-5">
-                <h2 class="font-bold ">${word.word}</h2>
-                <p class="my-6">Meaning /Pronounciation</p>
-                <p class="font-bangla">"${word.meaning} / ${word.pronunciation}"</p>
+                <h2 class="font-bold text-xl ">${word.word}</h2>
+                <p class="my-6 font-semibold">Meaning /Pronounciation</p>
+                <p class="font-bangla text-2xl font-semibold">"${word.meaning} / ${word.pronunciation}"</p>
+                <div class="flex justify-between items-center mt-14">
+                    <button class="btn bg-[#1a9aff10] hover:bg-[#1a9aff80]">
+                        <i class="fa-solid fa-circle-info"></i>
+                    </button>
+                    <button class="btn bg-[#1a9aff10] hover:bg-[#1a9aff80]">
+                        <i class="fa-solid fa-volume-high"></i>
+                    </button>
+
+                </div>
             </div>
     `;
     wordContainer.append(card);
