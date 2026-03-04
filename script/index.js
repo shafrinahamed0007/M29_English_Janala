@@ -1,3 +1,8 @@
+const createElements = (arr) => {
+  const htmlElements = arr.map((el) => `<span class = "btn">${el}</span>`);
+  return htmlElements.join("");
+};
+
 const loadLessons = () => {
   const url = "https://openapi.programming-hero.com/api/levels/all";
 
@@ -28,6 +33,7 @@ const displayLesson = (lessons) => {
 };
 
 const loadLevelWord = (id) => {
+  manageSpinner(true);
   // console.log(id)
   const url = `https://openapi.programming-hero.com/api/level/${id}`;
   // console.log(url)
@@ -74,9 +80,7 @@ const displayWordDetails = (word) => {
                     </div>
                     <div class="">
                         <h2 class="text-2xl font-bold">Synonym</h2>
-                        <span class="btn">Syn1</span>
-                        <span class="btn">Syn2</span>
-                        <span class="btn">Syn3</span>
+                        <div class = "">${createElements(word.synonyms)}</div>
                     </div>
   
   `;
@@ -96,6 +100,7 @@ const displayLevelWord = (words) => {
                 <h2 class="font-bold text-3xl">নেক্সট Lesson এ যান</h2>
             </div>
     `;
+    manageSpinner(false)
     return;
   }
 
@@ -120,6 +125,17 @@ const displayLevelWord = (words) => {
     `;
     wordContainer.append(card);
   });
+  manageSpinner(false);
+};
+
+const manageSpinner = (status) => {
+  if (status == true) {
+    document.getElementById("spinner").classList.remove("hidden");
+    document.getElementById("wordContainer").classList.add("hidden");
+  } else {
+    document.getElementById("spinner").classList.add("hidden");
+    document.getElementById("wordContainer").classList.remove("hidden");
+  }
 };
 
 loadLessons();
