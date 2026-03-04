@@ -41,15 +41,26 @@ const displayLevelWord = (words) => {
   // console.log(words);
   const wordContainer = document.getElementById("wordContainer");
   wordContainer.innerHTML = "";
+  if (words.length == 0) {
+    wordContainer.innerHTML = `
+    
+    <div class="text-center col-span-full rounded-xl py-10 bg-sky-100 space-y-6">
+    <i class="fa-solid fa-triangle-exclamation text-6xl text-gray-400" ></i>
+                <p class="font-bangla font-medium text-xl text-gray-400 ">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।</p>
+                <h2 class="font-bold text-3xl">নেক্সট Lesson এ যান</h2>
+            </div>
+    `;
+    return;
+  }
 
   words.forEach((word) => {
     // console.log(word);
     const card = document.createElement("div");
     card.innerHTML = `
      <div class="bg-white rounded-xl shadow-sm text-center py-20 px-5">
-                <h2 class="font-bold text-xl ">${word.word}</h2>
+                <h2 class="font-bold text-xl ">${word.word ? word.word : "শব্দ পাওয়া যায়নি"}</h2>
                 <p class="my-6 font-semibold">Meaning /Pronounciation</p>
-                <p class="font-bangla text-2xl font-semibold">"${word.meaning} / ${word.pronunciation}"</p>
+                <p class="font-bangla text-2xl font-semibold">"${word.meaning? word.meaning : "অর্থ পাওয়া যায়নি"} / ${word.pronunciation ? word.pronunciation : "Pronounciation পাওয়া যায়নি"}"</p>
                 <div class="flex justify-between items-center mt-14">
                     <button class="btn bg-[#1a9aff10] hover:bg-[#1a9aff80]">
                         <i class="fa-solid fa-circle-info"></i>
